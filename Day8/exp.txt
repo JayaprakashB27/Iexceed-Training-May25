@@ -1,0 +1,26 @@
+1. SOLID Principles
+
+    SRP: public ParkingSlot(String slotId, String vehicleType, String carNumber, String customerId, String date, String ticket, String checkInTime) { ... }
+     (Single responsibility of holding parking slot information)
+
+    OCP: INITIAL_SLOTS.put("car", new HashSet<>(Arrays.asList("A1","A2","A3","A4"))); (Modifying this line to add new vehicle types violates OCP)
+
+    ISP: interface ParkingManager { void parkVehicle(ParkingSlot slot); ... } (Interface methods are relevant to parking management)
+
+    DIP: private final Map<String, ParkingSlot> parkedVehicles = new HashMap<>(); (Direct dependency on ParkingSlot)
+
+2. DRY (Don't Repeat Yourself)
+
+    String ticket = generateTicket(4, 6); (Centralizes ticket generation logic)
+
+3. KISS (Keep It Simple, Stupid)
+
+    while (true) { ... } (The main loop is straightforward but could be simplified further)
+
+4. TDA (Tell, Don't Ask)
+
+    String slotId = getAvailableSlot(slot.vehicleType); (Encapsulates the logic for retrieving available slots)
+
+5. YAGNI (You Aren't Gonna Need It)
+
+    System.out.println("No available slot for vehicle type: " + slot.vehicleType); (Focuses on current functionality without unnecessary features)
